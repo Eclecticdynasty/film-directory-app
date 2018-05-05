@@ -8,6 +8,14 @@ class User < ApplicationRecord
   has_one :directory
 
 
+  VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+
+  validates :email, :password, :username, presence: true
+  validates :email, uniqueness: { case_sensitive: false }
+  validates :email, format: { with: VALID_EMAIL_REGEX }
+  validates :password, length: { minimum: 8 }
+
+
 def self.create_with_omniauth(auth)
   create! do |user|
     user.provider = auth["provider"]
