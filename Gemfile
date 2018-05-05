@@ -29,7 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pry'
 gem 'omniauth'
 gem 'dotenv-rails'
-gem 'omniauth-facebook'
+gem 'omniauth-github', '~> 1.3.0'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
